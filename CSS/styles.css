@@ -1,0 +1,7 @@
+*, *::before, *::after {
+    box-sizing: content-box;
+}
+body {
+    background-color: black;
+    outline: 1px solid red;
+}
