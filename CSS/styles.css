@@ -1,12 +1,16 @@
 :root {
     --base-bg: #190933;
     --base-accent: #BBB09B;
+    --base-font: rgb(207, 203, 191);
 }
 
 *,
 *::after,
 *::before {
     box-sizing: border-box;
+}
+.fit-content {
+    width: fit-content;
 }
 
 body {
@@ -18,4 +22,25 @@ header {
     margin: .5%;
     padding: 10px 20px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#header-h1 {
+    margin: 0 auto 0 5px;
+    outline: 1px solid red;
+    align-self: last baseline;
+    color: var(--base-font);
+}
+.header-logo {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+}
+.header-logo img {
+    padding: 0;
+    margin: 0;
+}
+header * {
+    outline: 1px solid green;
 }
