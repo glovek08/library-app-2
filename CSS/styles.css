@@ -1,7 +1,21 @@
-*, *::before, *::after {
-    box-sizing: content-box;
+:root {
+    --base-bg: #190933;
+    --base-accent: #BBB09B;
 }
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: black;
-    outline: 1px solid red;
+    background-color: var(--base-bg);
+    margin: 0;
+}
+header {
+    border: 1px solid var(--base-accent);
+    margin: .5%;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
