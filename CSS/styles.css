@@ -29,19 +29,27 @@ img {
 body {
     background-color: var(--base-bg);
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100dvw;
+    min-height: 100dvh;
 }
 header {
+    width: calc(100% - 20px);
     background: var(--base-fg);
-    margin: .5%;
+    margin-top: 10px;
+    margin-bottom: auto;
     padding: 10px 20px 15px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
+    outline: 1px solid green;
 }
 #header-h1 {
     margin: 0 auto 0 5px;
-    /* outline: 1px solid red; */
     align-self: last baseline;
     color: var(--base-font);
     font-family: "Playwrite England";
@@ -56,6 +64,20 @@ header {
     padding: 0;
     margin: 0;
 }
-header * {
-    /* outline: 1px solid green; */
+
+
+main {
+    outline: 1px solid red;
+    width: 100%;
+    min-height: 600px;
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: auto;
+}
+footer {
+    outline: 1px solid blue;
+    margin-bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    background-color: rgb(0, 3, 29);
 }
