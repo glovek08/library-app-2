@@ -1,8 +1,10 @@
 :root {
-    --base-bg: #190933;
-    --base-fg: #220C45;
+    --base-bg: #DADAD9;
+    --bg-font: #161612;
+    --base-fg: #36382E;
+    --fg-font: #EDE6E3;
     --base-accent: #BBB09B;
-    --base-font: rgb(207, 203, 191);
+    --base-font: #36382E;
 }
 
 *,
@@ -37,8 +39,10 @@ body {
     min-height: 100dvh;
 }
 header {
+    /* outline: 1px solid green; */
     width: calc(100% - 20px);
     background: var(--base-fg);
+    color: var(--fg-font);
     margin-top: 10px;
     margin-bottom: auto;
     padding: 10px 20px 15px 20px;
@@ -46,12 +50,10 @@ header {
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    outline: 1px solid green;
 }
 #header-h1 {
     margin: 0 auto 0 5px;
     align-self: last baseline;
-    color: var(--base-font);
     font-family: "Playwrite England";
     font-size: 1.5em;
 }
@@ -67,17 +69,24 @@ header {
 
 
 main {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
+    color: var(--bg-font);
     width: 100%;
     min-height: 600px;
     height: 100%;
     margin-top: 10px;
     margin-bottom: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 320px);
+    gap: 16px;
+    padding: 2% 5%;
 }
 footer {
-    outline: 1px solid blue;
+    /* outline: 1px solid blue; */
+    margin-top: 10px;
     margin-bottom: 0;
     width: 100%;
     min-height: 100px;
-    background-color: rgb(0, 3, 29);
+    background-color: var(--base-fg);
+    color: var(--fg-font);
 }
