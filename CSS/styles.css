@@ -4,7 +4,7 @@
     --base-fg: #36382E;
     --base-fg-transparent: #1b1d1fcb;
     --fg-font: #EDE6E3;
-    --base-accent: #F06449;
+    --base-accent: #db573c;
     --base-font: #36382E;
     /*margins*/
     --main-margin: 50px;
@@ -63,18 +63,28 @@ header {
     color: var(--fg-font);
     margin-top: 10px;
     margin-bottom: 0;
-    padding: 10px 20px 15px 20px;
+    padding: 10px 10px 15px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
     border-radius: 10px;
 }
 
-#header-h1 {
-    margin: 0 auto 0 5px;
-    align-self: last baseline;
+#header-h1-container {
+    /* outline: 1px solid green; */
+    margin: 10px auto 0 0;
     font-family: "Playwrite England";
-    font-size: 1.5em;
+    font-size: .9em;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#header-h1 {
+    padding: 0;
+    margin: 0;
 }
 
 .header-logo {
@@ -85,7 +95,22 @@ header {
 
 .header-logo img {
     padding: 0;
-    margin: 0;
+    margin: 0 0 5px 0;
+}
+#motto-container {
+    /* outline: 1px solid yellow; */
+    margin-left: 10px;
+    margin-right: auto;
+    display: flex;
+    align-items: first baseline;
+    justify-content: center;
+}
+#header-vertical-bar {
+    height: 30px;
+    background-color: var(--base-accent);
+    width: 1px;
+    align-self: center;
+    margin-right: 10px;
 }
 
 
@@ -128,6 +153,7 @@ nav#toolbar {
     width: 40px;
 }
 .material-symbols-outlined-btn:hover .material-symbols-outlined {
+    color: var(--base-accent);
         font-size: 2.5em;
         font-variation-settings:
             'FILL' 1,
