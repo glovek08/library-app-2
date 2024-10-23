@@ -109,6 +109,10 @@ nav#toolbar {
     outline: 1px solid rgb(78, 156, 47);
     width: 100%;
     min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px 15px;
 }
 
 .material-symbols-outlined-btn {
@@ -130,6 +134,9 @@ nav#toolbar {
             'wght' 400,
             'GRAD' 0,
             'opsz' 24
+}
+.material-symbols-outlined-btn:last-of-type {
+    margin-left: 30px;
 }
 
 section#library-container {
