@@ -8,7 +8,22 @@
     --base-font: #36382E;
     /*margins*/
     --main-margin: 50px;
+    --text-shadow: black;
 }
+:root.dark {
+    --base-bg: #262622;
+    --bg-font: #EDE6E3;
+    --base-fg: #a6aeb4;
+    --base-fg-transparent: #cddfecba; /* Adjusting transparency to match the fg */
+    --fg-font: #2c281b;
+    --base-accent: #ec3c18; /* Accent color can stay the same unless you want to change it */
+    --base-font: #EDE6E3;
+    --text-shadow: rgb(205, 195, 195);
+}
+
+/* a:visited {
+    color: var(--visited);
+} */
 
 .material-symbols-outlined {
     transition: 200ms;
@@ -141,11 +156,12 @@ nav#toolbar {
 }
 
 .material-symbols-outlined-btn {
+    color: var(--bg-font);
     background: none;
     border: none;
     cursor: pointer;
     transition: 200ms;
-    outline: 1px solid red;
+    outline: 1px solid rgb(255, 204, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,7 +219,7 @@ section#library-container {
     padding: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 5px var(--text-shadow);
 }
 
 .book-title {
