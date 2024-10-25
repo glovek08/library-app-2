@@ -1,4 +1,5 @@
-
+const root = document.documentElement;
+const themeCheckbox = document.querySelector('#theme-checkbox');
 
 const myLibrary = [
   {
@@ -14,6 +15,11 @@ const myLibrary = [
     bookCover: "Assets/book covers/Taras_bulba_cover.jpg",
   }
 ];
+
+themeCheckbox.addEventListener('click', () => {
+  console.log(themeCheckbox.checked);
+})
+
 
 function Book() {
   // the constructor...
