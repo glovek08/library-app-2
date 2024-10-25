@@ -139,29 +139,15 @@ header {
     cursor: pointer;
 }
 #theme-checkbox-label:hover {
-    #change-theme-btn-span {
+    #theme-checkbox-span {
         font-size: 3em;
         color: var(--base-accent);
     }
 }
-#theme-checkbox-label span {
+#theme-checkbox-span {
     font-size: 2.5em;
 }
 
-/* #change-theme-btn {
-    align-self: center;
-    margin-top: 5px;
-    margin-right: 3%;
-    height: 60px;
-    width: 60px;
-    color: var(--fg-font);
-}
-#change-theme-btn span {
-    font-size: 3em;
-}
-#change-theme-btn span:hover {
-    font-size: 4em;
-} */
 
 #header-h1 {
     padding: 0;

@@ -1,5 +1,6 @@
 const root = document.documentElement;
 const themeCheckbox = document.querySelector('#theme-checkbox');
+const themeCheckboxSpan = document.querySelector('#theme-checkbox-span')
 
 const myLibrary = [
   {
@@ -16,8 +17,29 @@ const myLibrary = [
   }
 ];
 
+if (localStorage.getItem('theme') === 'light') {
+  root.classList.remove('dark');
+  root.classList.add('light');
+  themeCheckboxSpan.textContent = 'dark_mode';
+  themeCheckbox.checked = true;
+} else {
+  root.classList.remove('light');
+  root.classList.add('dark');
+  themeCheckboxSpan.textContent = 'light_mode';
+  themeCheckbox.checked = false;
+};
+
 themeCheckbox.addEventListener('click', () => {
   console.log(themeCheckbox.checked);
+  if (themeCheckbox.checked) {
+    root.classList = '';
+    themeCheckboxSpan.textContent = 'dark_mode';
+    localStorage.setItem('theme', 'light');
+  } else {
+    root.classList = 'dark';
+    themeCheckboxSpan.textContent = 'light_mode';
+    localStorage.setItem('theme', 'dark');
+  }
 })
 
 
