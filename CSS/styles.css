@@ -17,7 +17,7 @@
     --base-fg: #a6aeb4;
     --base-fg-transparent: #cddfecba; /* Adjusting transparency to match the fg */
     --fg-font: #2c281b;
-    --base-accent: #ec3c18; /* Accent color can stay the same unless you want to change it */
+    --base-accent: #f12c1e; /* Accent color can stay the same unless you want to change it */
     --base-font: #EDE6E3;
     --text-shadow: rgb(205, 195, 195);
     --box-shadow: rgba(25, 22, 22, 0.791);
@@ -94,7 +94,7 @@ header {
     color: var(--fg-font);
     margin-top: 10px;
     margin-bottom: 0;
-    padding: 10px 10px 15px 20px;
+    padding: 10px 10px 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -127,7 +127,6 @@ header {
 }
 #theme-checkbox-label {
     align-self: center;
-    margin-top: 5px;
     margin-right: 3%;
     min-height: 60px;
     min-width: 60px;
@@ -313,5 +312,16 @@ footer {
     }
     #header-h1 {
         margin-bottom: 13px;
+    }
+}
+@media screen and (max-width: 340px) {
+    #header-h1 {
+        font-size: 1em;
+        text-wrap: wrap;
+    }
+}
+@media screen and (max-width: 230px) {
+    #header-h1 {
+        display: none;
     }
 }

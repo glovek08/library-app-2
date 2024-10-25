@@ -1,21 +1,24 @@
 const root = document.documentElement;
 const themeCheckbox = document.querySelector('#theme-checkbox');
-const themeCheckboxSpan = document.querySelector('#theme-checkbox-span')
+const themeCheckboxSpan = document.querySelector('#theme-checkbox-span');
+const libraryContainer = document.querySelector('#library-container');
 
 const myLibrary = [
   {
     title: "Prelude to Foundation",
     author: "Isaac Asimov",
     year: 1988,
-    bookCover: "Assets/book covers/Prelude_to_Foundation_cover.jpg",
+    cover: "Assets/book covers/Prelude_to_Foundation_cover.jpg",
   },
   {
     title: "Taras Bulba",
     author: "Nikolai Gogol",
     year: 1835,
-    bookCover: "Assets/book covers/Taras_bulba_cover.jpg",
+    cover: "Assets/book covers/Taras_bulba_cover.jpg",
   }
 ];
+
+displayLibrary();
 
 if (localStorage.getItem('theme') === 'light') {
   root.classList.remove('dark');
@@ -44,9 +47,47 @@ themeCheckbox.addEventListener('click', () => {
 
 
 function Book() {
-  // the constructor...
+  
 }
 
 function addBookToLibrary() {
-  // do stuff here
+  
+}
+function displayLibrary() {
+  myLibrary.forEach(el => {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+
+    const bookCover = document.createElement('img');
+    bookCover.src = el.cover;
+    bookCover.alt = 'Book Cover';
+    bookCover.classList.add('book-cover-img');
+    bookCover.height = 320;
+    bookCover.width = 220;
+
+    bookCard.appendChild(bookCover);
+
+    const bookInfoContainer = document.createElement('div');
+    bookInfoContainer.classList.add('book-info-container'); 
+    bookCard.appendChild(bookInfoContainer);
+
+    const bookTitle = document.createElement('h3');
+    bookTitle.textContent = el.title;
+    bookTitle.classList.add('book-title'); 
+    bookInfoContainer.appendChild(bookTitle);
+
+    const bookAuthor = document.createElement('small');
+    bookAuthor.textContent = el.author;
+    bookAuthor.classList.add('book-author'); 
+    bookInfoContainer.appendChild(bookAuthor);
+
+    const bookYear = document.createElement('small');
+    bookYear.textContent = el.year;
+    bookYear.classList.add('book-year'); 
+    bookInfoContainer.appendChild(bookYear);
+
+    // Finally, append the book card to the library container
+    libraryContainer.appendChild(bookCard);
+  })
+
 }
