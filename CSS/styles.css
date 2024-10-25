@@ -138,13 +138,14 @@ header {
     justify-content: center;
     cursor: pointer;
 }
+#theme-checkbox-label:hover {
+    #change-theme-btn-span {
+        font-size: 3em;
+        color: var(--base-accent);
+    }
+}
 #theme-checkbox-label span {
     font-size: 2.5em;
-}
-#theme-checkbox-label span:hover {
-    font-size: 3em;
-    color: var(--base-accent);
-
 }
 
 /* #change-theme-btn {
