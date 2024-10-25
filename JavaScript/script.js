@@ -15,6 +15,24 @@ const myLibrary = [
     author: "Nikolai Gogol",
     year: 1835,
     cover: "Assets/book covers/Taras_bulba_cover.jpg",
+  },
+  {
+    title: "The Silmarillion",
+    author: 'J. R. R. Tolkien',
+    year: 1977,
+    cover: "Assets/book covers/The_Silmarillion_cover.jpg",
+  },
+  {
+    title: "The Teacher",
+    author: "Freida McFadden",
+    year: 2024,
+    cover: "Assets/book covers/The_Teacher_cover.jpg"
+  },
+  {
+    title: "Poor Dad, Poor Dad",
+    author: "Ronald Sashimi",
+    year: 2022,
+    cover: "Assets/book covers/Poor_Dad_Poor_Dad_cover.jpg"
   }
 ];
 
