@@ -3,6 +3,11 @@ const themeCheckbox = document.querySelector('#theme-checkbox');
 const themeCheckboxSpan = document.querySelector('#theme-checkbox-span');
 const libraryContainer = document.querySelector('#library-container');
 
+//Modal
+const addBookModal = document.querySelector("#modal-container");
+const addBookBtn = document.querySelector("#add-book-btn");
+const closeBookModal = document.querySelector("#close-modal-btn");
+
 const myLibrary = [
   {
     title: "Prelude to Foundation",
@@ -63,6 +68,13 @@ themeCheckbox.addEventListener('click', () => {
   }
 });
 
+addBookBtn.addEventListener('click', () => {
+  addBookModal.showModal();
+})
+closeBookModal.addEventListener('click', () => {
+  addBookModal.close()
+})
+
 
 function Book() {
   
@@ -104,7 +116,6 @@ function displayLibrary() {
     bookYear.classList.add('book-year'); 
     bookInfoContainer.appendChild(bookYear);
 
-    // Finally, append the book card to the library container
     libraryContainer.appendChild(bookCard);
   })
 }
