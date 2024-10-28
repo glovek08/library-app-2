@@ -61,7 +61,7 @@ themeCheckbox.addEventListener('click', () => {
     themeCheckboxSpan.textContent = 'light_mode';
     localStorage.setItem('theme', 'dark');
   }
-})
+});
 
 
 function Book() {
@@ -107,5 +107,4 @@ function displayLibrary() {
     // Finally, append the book card to the library container
     libraryContainer.appendChild(bookCard);
   })
-
 }

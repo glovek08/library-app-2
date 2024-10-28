@@ -48,6 +48,38 @@
             </nav>
             <section id="library-container">
             </section>
+
+            <section id="modal-container" role="dialog">
+                <div id="modal-header">
+                    <div id="modal-heading-container">
+                        <h2 id="modal-title">Add Book</h2>
+                        <small id="modal-description">Insert Book Title, Author, Year and an optional cover.</small>
+                    </div>
+                    <button id="close-modal-btn" class="material-symbols-outlined-btn">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </div>
+                <div id="modal-form-container">
+                    <form action="" id="add-book-form" method="POST">
+                        <div class="form-wrapper">
+                            <label for="book-title" class="modal-form-label">Title: </label>
+                            <input type="text" name="book-title" id="book-title" class="modal-form-input" maxlength="30" placeholder="Title" required>
+                        </div>
+                        <div class="form-wrapper">
+                            <label for="book-author" class="modal-form-label">Author: </label>
+                            <input type="text" name="book-author" id="book-author" class="modal-form-input" maxlength="30" placeholder="Author" required>
+                        </div>
+                        <div class="form-wrapper">
+                            <label for="book-year" class="modal-form-label">Year: </label>
+                            <input type="number" name="book-year" id="book-year" class="modal-form-input" max="9999" min="-12000" placeholder="Year">
+                        </div>
+                        <button type="reset" id="modal-cancel-btn" class="modal-btn">CANCEL</button>
+                        <button type="submit" id="modal-submit-btn" class="modal-btn">SUBMIT</button>
+                    </form>
+                </div>
+            </section> 
         </main>
         <footer>
 
