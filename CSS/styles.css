@@ -11,6 +11,9 @@
     --box-shadow: rgba(55, 54, 54, 0.568);
     --modal-bg: rgba(234, 235, 236, 0.933);
     --modal-font: rgb(19, 19, 16);
+    --light-red: red;
+    --dark-green: rgb(14, 129, 14);
+    --green: rgb(74, 149, 74);
     /*margins*/
     --main-margin: 50px;
 }
@@ -27,6 +30,10 @@
     --box-shadow: rgba(25, 22, 22, 0.791);
     --modal-bg: rgba(14, 23, 26, 0.933);
     --modal-font: rgb(213, 211, 201);
+    --red: #d53d3d;
+    --dark-red: #9b0d0d;
+    --dark-green: rgb(14, 129, 14);
+    --green: rgb(30, 146, 30);
 
 }
 
@@ -371,6 +378,14 @@ dialog#modal-container {
     outline: 1px solid yellow;
     width: 100%;
 }
+
+#modal-buttons-container {
+    outline: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+}
 .form-wrapper {
     outline: 1px solid blue;
     width: 50%;
@@ -390,8 +405,73 @@ dialog#modal-container {
     outline: 1px solid rgb(158, 13, 202);
     width: 200px;
     justify-self: flex-end;
+    border-radius: 5px;
+    padding: 5px 8px;
 }
 
+.modal-btn {
+    margin: 8px;
+    width: 100px;
+    padding: 10px 5px;
+    color: var(--bg-font);
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: border 30ms ease-out;
+}
+
+.modal-btn:hover {
+    outline: 1px solid var(--base-accent);
+}
+
+#modal-cancel-btn {
+    background-color: var(--red);
+    /* box-shadow: 0px 3px 0px var(--dark-red),
+                3px 0px 0px var(--dark-red),
+                -3px 0px 0px var(--dark-red); */
+    border-bottom: 7px solid var(--dark-red);
+    border-right: 3px solid var(--dark-red);
+    border-left: 3px solid var(--dark-red);
+    border-top: none;
+}
+
+#modal-cancel-btn:active {
+    padding-top: 10px;
+    padding-bottom: 12px;
+    background-color: var(--red);
+    border-bottom: 3px solid var(--red);
+    border-right: 3px solid var(--red);
+    border-left: 3px solid var(--red);
+    border-top: 3px solid var(--red);
+}
+
+#modal-cancel-btn:hover {
+    background: red;
+}
+
+#modal-submit-btn {
+    background-color: var(--green);
+    /* box-shadow: 0px 3px 0px var(--dark-red),
+                3px 0px 0px var(--dark-red),
+                -3px 0px 0px var(--dark-red); */
+    border-bottom: 7px solid var(--dark-green);
+    border-right: 3px solid var(--dark-green);
+    border-left: 3px solid var(--dark-green);
+    border-top: none;
+}
+
+#modal-submit-btn:hover {
+    background: rgb(100, 163, 6);
+}
+#modal-submit-btn:active {
+    padding-top: 10px;
+    padding-bottom: 12px;
+    background-color: var(--green);
+    border-bottom: 3px solid var(--green);
+    border-right: 3px solid var(--green);
+    border-left: 3px solid var(--green);
+    border-top: 3px solid var(--green);
+}
 
 footer {
     /* outline: 1px solid blue; */
