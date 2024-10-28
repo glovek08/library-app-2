@@ -11,9 +11,10 @@
     --box-shadow: rgba(55, 54, 54, 0.568);
     --modal-bg: rgba(234, 235, 236, 0.933);
     --modal-font: rgb(19, 19, 16);
-    --light-red: red;
-    --dark-green: rgb(14, 129, 14);
-    --green: rgb(74, 149, 74);
+    --red: #ef7171;
+    --dark-red: #a85454;
+    --dark-green: #519751;
+    --green: #73cc73;
     /*margins*/
     --main-margin: 50px;
 }
@@ -399,6 +400,7 @@ dialog#modal-container {
     outline: 1px solid rgb(49, 200, 49);
     margin-left: auto;
     margin-right: 10px;
+    font-size: 1.1em;
 
 }
 .modal-form-input {
@@ -421,7 +423,7 @@ dialog#modal-container {
 }
 
 .modal-btn:hover {
-    outline: 1px solid var(--base-accent);
+    outline: 3px solid var(--base-accent);
 }
 
 #modal-cancel-btn {
@@ -445,10 +447,6 @@ dialog#modal-container {
     border-top: 3px solid var(--red);
 }
 
-#modal-cancel-btn:hover {
-    background: red;
-}
-
 #modal-submit-btn {
     background-color: var(--green);
     /* box-shadow: 0px 3px 0px var(--dark-red),
@@ -460,9 +458,6 @@ dialog#modal-container {
     border-top: none;
 }
 
-#modal-submit-btn:hover {
-    background: rgb(100, 163, 6);
-}
 #modal-submit-btn:active {
     padding-top: 10px;
     padding-bottom: 12px;
