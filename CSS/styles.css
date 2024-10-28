@@ -319,11 +319,13 @@ img.book-cover-img {
     margin: 0;
 }
 
-section#modal-container {
+dialog#modal-container {
     outline: 1px solid red;
     padding: 20px;
     width: 600px;
     background-color: var(--modal-bg);
+    border-radius: 5px;
+    border: 2px solid var(--base-fg);
     color: var(--modal-font);
     position: absolute;
     top: 30dvh;
