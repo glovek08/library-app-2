@@ -66,7 +66,7 @@
 }
 @font-face {
     font-family: "Open Sans";
-    src: url("../Assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf") format("ttf");
+    src: url("../Assets/fonts/OpenSans-Regular.ttf") format("ttf");
 }
 
 .fit-content {
@@ -228,7 +228,7 @@ nav#toolbar {
 }
 
 .material-symbols-outlined-btn {
-    outline: 1px solid rgb(255, 204, 0);
+    /* outline: 1px solid rgb(255, 204, 0); */
     color: var(--bg-font);
     background: none;
     border: none;
@@ -288,7 +288,6 @@ section#library-container {
 .book-card:hover {
     transform: scale(1.09);
     box-shadow: 5px 10px 30px var(--box-shadow);
-    outline: 2px solid var(--base-accent);
     img.book-cover-img {
         filter: grayscale(0);
     }
@@ -328,7 +327,7 @@ img.book-cover-img {
 }
 
 dialog#modal-container {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     padding: 20px;
     width: 600px;
     background-color: var(--modal-bg);
@@ -344,28 +343,28 @@ dialog#modal-container {
 }
 
 #modal-header {
-    outline: 1px solid rgb(255, 0, 195);
     width: 100%;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 #modal-heading-container {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     width: max-content; 
 }
 #modal-title {
+    /* outline: 1px solid yellow; */
     margin: 0;
     width: 40%;
-    outline: 1px solid yellow;
 }
 #modal-description {
+    /* outline: 1px solid blue; */
     margin-left: 10px;
     font-style: italic;
-    outline: 1px solid blue;
 }
 #close-modal-btn {
-    outline: 1px solid green;
+    /* outline: 1px solid green; */
     color: var(--modal-font);
     align-self: flex-start;
 }
@@ -374,20 +373,21 @@ dialog#modal-container {
 }
 
 #modal-form-container {
-    outline: 1px solid yellow;
+    /* outline: 1px solid yellow; */
     width: 100%;
 }
 
 #modal-buttons-container {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 50px;
+    margin-top: 40px;
 }
 .form-wrapper {
-    outline: 1px solid blue;
-    width: 50%;
+    /* outline: 1px solid blue; */
+    width: 90%;
     margin: 15px auto 15px auto;
     display: flex;
     align-items: center;
@@ -395,18 +395,23 @@ dialog#modal-container {
     flex-wrap: nowrap;
 }
 .modal-form-label {
-    outline: 1px solid rgb(49, 200, 49);
+    /* outline: 1px solid rgb(49, 200, 49); */
     margin-left: auto;
     margin-right: 10px;
     font-size: 1.1em;
 
 }
 .modal-form-input {
-    outline: 1px solid rgb(158, 13, 202);
-    width: 200px;
+    /* outline: 1px solid rgb(158, 13, 202); */
+    width: 300px;
+    margin-right: 20%;
     justify-self: flex-end;
     border-radius: 5px;
     padding: 5px 8px;
+    border: 2px inset var(--base-fg);
+}
+.modal-form-input:focus {
+    outline: 3px solid var(--base-accent);
 }
 
 .modal-btn {
@@ -491,6 +496,7 @@ footer {
     }
     .modal-form-input {
         width: 80%;
+        margin-right: 0;
     }
     .form-wrapper {
         width: 100%;
