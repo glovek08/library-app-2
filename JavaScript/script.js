@@ -3,10 +3,12 @@ const themeCheckbox = document.querySelector('#theme-checkbox');
 const themeCheckboxSpan = document.querySelector('#theme-checkbox-span');
 const libraryContainer = document.querySelector('#library-container');
 
-//Modal
+//Add Book Modal
 const addBookModal = document.querySelector("#modal-container");
 const addBookBtn = document.querySelector("#add-book-btn");
 const closeBookModal = document.querySelector("#close-modal-btn");
+const modalCancelBtn = document.querySelector("#modal-cancel-btn");
+const modalSubmitBtn = document.querySelector("#modal-submit-btn");
 
 const myLibrary = [
   {
@@ -74,10 +76,21 @@ addBookBtn.addEventListener('click', () => {
 closeBookModal.addEventListener('click', () => {
   addBookModal.close()
 })
+modalCancelBtn.addEventListener("click", () => {
+  addBookModal.close();
+})
+modalSubmitBtn.addEventListener('click', () => {})
 
 
-function Book() {
-  
+function Book(title, author, year, numberOfPages = 0, haveRead = false) {
+  this.title = title;
+  this.author = author;
+  this.year = year;
+  this.numberOfPages = numberOfPages;
+  this.haveRead = haveRead;
+}
+Book.prototype.displayInfo = function() {
+  return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;
 }
 
 function addBookToLibrary() {

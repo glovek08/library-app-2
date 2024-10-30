@@ -443,6 +443,8 @@ dialog#modal-container {
     font-weight: bolder;
     cursor: pointer;
     border-radius: 10px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     transition: border 30ms ease-out;
 }
 
@@ -452,9 +454,9 @@ dialog#modal-container {
 
 #modal-cancel-btn {
     background-color: var(--red);
-    box-shadow: 2px 3px 0px var(--dark-red),
-        0px 0px 0px var(--dark-red),
-        -2px 3px 0px var(--dark-red);
+    box-shadow: 1px 3px 0px var(--dark-red),
+                0px 0px 0px var(--dark-red),
+                -1px 3px 0px var(--dark-red);
     border-top: none;
     border-right: 3px solid var(--dark-red);
     border-left: 3px solid var(--dark-red);
@@ -472,9 +474,9 @@ dialog#modal-container {
 
 #modal-submit-btn {
     background-color: var(--green);
-    box-shadow: 2px 3px 0px var(--dark-green),
-        0px 0px 0px var(--dark-green),
-        -2px 3px 0px var(--dark-green);
+    box-shadow: 1px 3px 0px var(--dark-green),
+                0px 0px 0px var(--dark-green),
+                -1px 3px 0px var(--dark-green);
     border-top: none;
     border-right: 3px solid var(--dark-green);
     border-left: 3px solid var(--dark-green);
