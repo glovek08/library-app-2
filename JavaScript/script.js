@@ -79,10 +79,12 @@ closeBookModal.addEventListener('click', () => {
 modalCancelBtn.addEventListener("click", () => {
   addBookModal.close();
 })
-modalSubmitBtn.addEventListener('click', () => {})
+modalSubmitBtn.addEventListener('click', () => {
+  addBookToLibrary();
+});
 
 
-function Book(title, author, year, numberOfPages = 0, haveRead = false) {
+function Book(title, author, year, numberOfPages, haveRead) {
   this.title = title;
   this.author = author;
   this.year = year;
@@ -94,11 +96,14 @@ Book.prototype.displayInfo = function() {
 }
 
 function addBookToLibrary() {
-  const titleInput = document.querySelector('[name="book-title"]');
-  const authorInput = document.querySelector('[name="book-author"]');
-  const yearInput = document.querySelector('[name="book-year"]');
-  const numberOfPages = document.querySelector('[name="number-of-pages"]');
-  const haveRead = document.querySelector('[name="have-read-chkbox"');
+  const titleInput = document.querySelector('[name="book-title"]').value;
+  const authorInput = document.querySelector('[name="book-author"]').value;
+  const yearInput = document.querySelector('[name="book-year"]').value;
+  const numberOfPages = document.querySelector('[name="number-of-pages"]').value;
+  const haveRead = document.querySelector('[name="have-read"').value;
+  console.log("Shit is: "+titleInput, authorInput, yearInput, numberOfPages, haveRead);
+  const book = new Book(titleInput, authorInput, yearInput, numberOfPages, haveRead);
+  myLibrary.push(book);
 }
 
 function displayLibrary() {
