@@ -355,34 +355,35 @@ dialog#modal-container {
 }
 
 #modal-header {
+    /* outline: 1px solid rgb(13, 255, 0); */
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-#modal-heading-container {
-    /* outline: 1px solid red; */
-    width: max-content;
+    padding: 5px;
 }
 
 #modal-title {
     /* outline: 1px solid yellow; */
-    margin: 0;
-    width: 40%;
+    margin: 0 0 0 0;
+    max-width: 60%;
+    text-wrap: nowrap;
 }
 
 #modal-description {
     /* outline: 1px solid blue; */
-    margin-left: 10px;
+    position: relative;
+    bottom: 10px;
     font-style: italic;
 }
 
 #close-modal-btn {
     /* outline: 1px solid green; */
     color: var(--modal-font);
-    align-self: flex-start;
+    position: relative;
+    bottom: 15px;
+    left: 15px;
 }
 
 #modal-toolbar button {
@@ -418,7 +419,9 @@ dialog#modal-container {
     margin-left: auto;
     margin-right: 10px;
     font-size: 1.1em;
-
+    min-width: 30%;
+    text-wrap: nowrap;
+    text-align: right;
 }
 
 .modal-form-input {
@@ -429,6 +432,31 @@ dialog#modal-container {
     border-radius: 5px;
     padding: 5px 8px;
     border: 2px inset var(--base-fg);
+}
+
+#have-read-container {
+    /* outline: 1px solid yellow; */
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#have-read-container input {
+    margin-left: 35%;
+    vertical-align: baseline;
+    cursor: pointer;
+}
+#have-read-container fieldset {
+    border: 2px solid var(--base-fg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
 }
 
 .modal-form-input:focus {
@@ -527,6 +555,12 @@ footer {
 
     .form-wrapper {
         width: 100%;
+        justify-content: center;
+    }
+    #have-read-container {
+        width: 80%;
+    }
+    nav#toolbar {
         justify-content: center;
     }
 }

@@ -94,8 +94,13 @@ Book.prototype.displayInfo = function() {
 }
 
 function addBookToLibrary() {
-  
+  const titleInput = document.querySelector('[name="book-title"]');
+  const authorInput = document.querySelector('[name="book-author"]');
+  const yearInput = document.querySelector('[name="book-year"]');
+  const numberOfPages = document.querySelector('[name="number-of-pages"]');
+  const haveRead = document.querySelector('[name="have-read-chkbox"');
 }
+
 function displayLibrary() {
   myLibrary.forEach(el => {
     const bookCard = document.createElement('div');
