@@ -43,7 +43,7 @@ const myLibrary = [
   }
 ];
 
-displayLibrary();
+refreshLibrary();
 
 if (localStorage.getItem('theme') === 'light') {
   root.classList.remove('dark');
@@ -90,8 +90,9 @@ function Book(title, author, year, numberOfPages, haveRead) {
   this.year = year;
   this.numberOfPages = numberOfPages;
   this.haveRead = haveRead;
+  console.log(this.displayInfo());
 }
-Book.prototype.displayInfo = function() {
+Book.prototype.displayInfo = function () {
   return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;
 }
 
@@ -101,12 +102,20 @@ function addBookToLibrary() {
   const yearInput = document.querySelector('[name="book-year"]').value;
   const numberOfPages = document.querySelector('[name="number-of-pages"]').value;
   const haveRead = document.querySelector('[name="have-read"').value;
-  console.log("Shit is: "+titleInput, authorInput, yearInput, numberOfPages, haveRead);
+  console.log("Shit is: " + titleInput, authorInput, yearInput, numberOfPages, haveRead);
   const book = new Book(titleInput, authorInput, yearInput, numberOfPages, haveRead);
   myLibrary.push(book);
+  refreshLibrary();
 }
 
-function displayLibrary() {
+function refreshLibrary() {
+  let i = 0;
+  while (libraryContainer.firstChild) {
+    libraryContainer.removeChild(libraryContainer.firstChild);
+    i++;
+    console.log(`${i} element removed.`);
+  }
+  i = 0;
   myLibrary.forEach(el => {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
@@ -121,24 +130,25 @@ function displayLibrary() {
     bookCard.appendChild(bookCover);
 
     const bookInfoContainer = document.createElement('div');
-    bookInfoContainer.classList.add('book-info-container'); 
+    bookInfoContainer.classList.add('book-info-container');
     bookCard.appendChild(bookInfoContainer);
 
     const bookTitle = document.createElement('h3');
     bookTitle.textContent = el.title;
-    bookTitle.classList.add('book-title'); 
+    bookTitle.classList.add('book-title');
     bookInfoContainer.appendChild(bookTitle);
 
     const bookAuthor = document.createElement('small');
     bookAuthor.textContent = el.author;
-    bookAuthor.classList.add('book-author'); 
+    bookAuthor.classList.add('book-author');
     bookInfoContainer.appendChild(bookAuthor);
 
     const bookYear = document.createElement('small');
     bookYear.textContent = el.year;
-    bookYear.classList.add('book-year'); 
+    bookYear.classList.add('book-year');
     bookInfoContainer.appendChild(bookYear);
 
     libraryContainer.appendChild(bookCard);
   })
+  console.log('Library refreshed.')
 }
