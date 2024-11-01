@@ -8,7 +8,7 @@ const addBookModal = document.querySelector("#modal-container");
 const addBookBtn = document.querySelector("#add-book-btn");
 const closeBookModal = document.querySelector("#close-modal-btn");
 const modalCancelBtn = document.querySelector("#modal-cancel-btn");
-const modalSubmitBtn = document.querySelector("#modal-submit-btn");
+const bookSubmitForm = document.querySelector("#add-book-form");
 
 const myLibrary = [
   {
@@ -89,9 +89,13 @@ closeBookModal.addEventListener('click', () => {
 modalCancelBtn.addEventListener("click", () => {
   addBookModal.close();
 })
-modalSubmitBtn.addEventListener('click', () => {
+bookSubmitForm.addEventListener('submit', (e) => {
+  if (!bookSubmitForm.checkValidity()) {
+    e.preventDefault();
+    alert("Missing Fields");
+  }
   addBookToLibrary();
-});
+})
 
 
 function Book(title, author, year, numberOfPages, haveRead) {
@@ -100,7 +104,7 @@ function Book(title, author, year, numberOfPages, haveRead) {
   this.year = year;
   this.numberOfPages = numberOfPages;
   this.haveRead = (haveRead === 'Yes') ? true : false;
-  console.log("Book created: "+this.displayInfo());
+  console.log("Book created: " + this.displayInfo());
 }
 Book.prototype.displayInfo = function () {
   return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;

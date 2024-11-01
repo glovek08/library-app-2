@@ -85,15 +85,19 @@
                         <input type="number" name="number-of-pages" id="number-of-pages" class="modal-form-input"
                             max="9999" min="1" placeholder="Number of Pages" required>
                     </div>
+                    <div class="form-wrapper">
+                        <label for="book-cover-input" id="book-cover-input-label" class="modal-form-label">Cover<small> (optional)</small>:</label>
+                        <input type="file" name="book-cover" id="book-cover-input" accept=".png, .jpg, .jpeg">
+                    </div>
                     <div class="form-wrapper" id="have-read-container">
                         <fieldset>
                             <legend>Have you read it?</legend>
                             <label for="have-read-yes-radio">
-                                <input type="radio" id="have-read-yes-radio" name="have-read" value="Yes" />
+                                <input type="radio" id="have-read-yes-radio" name="have-read" value="Yes" required/>
                                 YES
                             </label>
                             <label for="have-read-no-radio">
-                                <input type="radio" id="have-read-no-radio" name="have-read" value="No" />
+                                <input type="radio" id="have-read-no-radio" name="have-read" value="No"/>
                                 NO
                             </label>
                         </fieldset>

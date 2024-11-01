@@ -270,9 +270,9 @@ section#library-container {
     column-gap: 16px;
     row-gap: 32px;
     width: 100%;
-    min-height: 900px;
+    min-height: 70dvh;
     padding: 10px;
-    align-items: start;
+    align-items: center;
     justify-content: space-around;
 }
 
@@ -424,6 +424,15 @@ dialog#modal-container {
     text-align: right;
 }
 
+#book-cover-input-label {
+    margin-left: 0;
+    margin-right: 0;
+}
+#book-cover-input {
+    margin-left: 10px;
+    margin-right: auto;
+}
+
 .modal-form-input {
     /* outline: 1px solid rgb(158, 13, 202); */
     width: 300px;
@@ -530,6 +539,9 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+    section#library-container {
+        width: 80%;
+    }
     #motto-container {
         display: none;
     }
@@ -542,10 +554,12 @@ footer {
         width: 80dvw;
     }
 
-    .modal-form-label {
+    .modal-form-label:not(#book-cover-input-label) {
         display: none;
     }
-
+    #book-cover-input-label {
+        margin-left: auto;
+    }
     .modal-form-input {
         width: 80%;
         margin-right: 0;
