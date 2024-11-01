@@ -15,30 +15,40 @@ const myLibrary = [
     title: "Prelude to Foundation",
     author: "Isaac Asimov",
     year: 1988,
+    numberOfPages: 403,
+    haveRead: true,
     cover: "Assets/book covers/Prelude_to_Foundation_cover.jpg",
   },
   {
     title: "Taras Bulba",
     author: "Nikolai Gogol",
     year: 1835,
+    numberOfPages: 150,
+    haveRead: true,
     cover: "Assets/book covers/Taras_bulba_cover.jpg",
   },
   {
     title: "The Silmarillion",
     author: 'J. R. R. Tolkien',
     year: 1977,
+    numberOfPages: 380,
+    haveRead: true,
     cover: "Assets/book covers/The_Silmarillion_cover.jpg",
   },
   {
     title: "The Teacher",
     author: "Freida McFadden",
     year: 2024,
+    numberOfPages: 400,
+    haveRead: false,
     cover: "Assets/book covers/The_Teacher_cover.jpg"
   },
   {
     title: "Poor Dad, Poor Dad",
     author: "Ronald Sashimi",
     year: 2022,
+    numberOfPages: 420,
+    haveRead: true,
     cover: "Assets/book covers/Poor_Dad_Poor_Dad_cover.jpg"
   }
 ];
@@ -113,7 +123,7 @@ function refreshLibrary() {
   while (libraryContainer.firstChild) {
     libraryContainer.removeChild(libraryContainer.firstChild);
     i++;
-    console.log(`${i} element removed.`);
+    console.log(`${i} Element removed`);
   }
   i = 0;
   myLibrary.forEach(el => {
