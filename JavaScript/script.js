@@ -99,7 +99,7 @@ function Book(title, author, year, numberOfPages, haveRead) {
   this.author = author;
   this.year = year;
   this.numberOfPages = numberOfPages;
-  this.haveRead = haveRead;
+  this.haveRead = (haveRead === 'Yes') ? true : false;
   console.log(this.displayInfo());
 }
 Book.prototype.displayInfo = function () {
