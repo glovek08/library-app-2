@@ -100,7 +100,7 @@ function Book(title, author, year, numberOfPages, haveRead) {
   this.year = year;
   this.numberOfPages = numberOfPages;
   this.haveRead = (haveRead === 'Yes') ? true : false;
-  console.log(this.displayInfo());
+  console.log("Book created: "+this.displayInfo());
 }
 Book.prototype.displayInfo = function () {
   return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;
@@ -111,8 +111,8 @@ function addBookToLibrary() {
   const authorInput = document.querySelector('[name="book-author"]').value;
   const yearInput = document.querySelector('[name="book-year"]').value;
   const numberOfPages = document.querySelector('[name="number-of-pages"]').value;
-  const haveRead = document.querySelector('[name="have-read"').value;
-  console.log("Shit is: " + titleInput, authorInput, yearInput, numberOfPages, haveRead);
+  const haveRead = document.querySelector('[name="have-read"]:checked')?.value;
+  console.log("Book Data: " + titleInput, authorInput, yearInput, numberOfPages, haveRead);
   const book = new Book(titleInput, authorInput, yearInput, numberOfPages, haveRead);
   myLibrary.push(book);
   refreshLibrary();
