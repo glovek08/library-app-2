@@ -258,9 +258,6 @@ nav#toolbar {
         'opsz' 24
 }
 
-.material-symbols-outlined-btn:last-of-type {
-    margin-left: 30px;
-}
 
 section#library-container {
     /* outline: 1px solid purple; */
@@ -272,7 +269,7 @@ section#library-container {
     width: 100%;
     min-height: 70dvh;
     padding: 10px;
-    align-items: center;
+    align-items: start;
     justify-content: space-around;
 }
 
@@ -298,7 +295,7 @@ section#library-container {
 .book-card:hover {
     transform: scale(1.09);
     box-shadow: 5px 10px 30px var(--box-shadow);
-
+    outline: 3px solid var(--base-accent);
     img.book-cover-img {
         filter: grayscale(0);
     }
@@ -306,6 +303,10 @@ section#library-container {
     .book-info-container {
         background-color: var(--base-fg-transparent-hover);
     }
+}
+
+.book-toolbar {
+    z-index: 3;
 }
 
 img.book-cover-img {

@@ -2,6 +2,7 @@ const root = document.documentElement;
 const themeCheckbox = document.querySelector('#theme-checkbox');
 const themeCheckboxSpan = document.querySelector('#theme-checkbox-span');
 const libraryContainer = document.querySelector('#library-container');
+const bookDeleteBtn = document.querySelector('.book-delete-btn');
 
 //Add Book Modal
 const addBookModal = document.querySelector("#modal-container");
@@ -97,6 +98,14 @@ bookSubmitForm.addEventListener('submit', (e) => {
   addBookToLibrary();
 })
 
+/*
+  TODO:
+  1 - Add functionality to remove a book.
+  2 - Add a toggle to change read status.
+  3 - Handle the cover for the book.
+  4 - Test the shit out of this, deadline: TOMORROW!
+*/ 
+
 
 function Book(title, author, year, numberOfPages, haveRead) {
   this.title = title;
@@ -133,6 +142,7 @@ function refreshLibrary() {
   myLibrary.forEach(el => {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
+    bookCard.dataset.index = myLibrary.indexOf(el);
 
     const bookCover = document.createElement('img');
     bookCover.src = el.cover;
@@ -140,8 +150,27 @@ function refreshLibrary() {
     bookCover.classList.add('book-cover-img');
     bookCover.height = 320;
     bookCover.width = 220;
-
     bookCard.appendChild(bookCover);
+
+    const bookToolbar = document.createElement('div');
+    bookToolbar.classList.add('book-toolbar');
+    const bookDeleteBtn = document.createElement('button');
+    bookDeleteBtn.classList.add('book-delete-btn');
+    bookDeleteBtn.classList.add('material-symbols-outlined-btn');
+    bookDeleteBtn.title = 'DELETE BOOK';
+    const deleteBtnSpan = document.createElement('span');
+    deleteBtnSpan.classList.add('material-symbols-outlined');
+    deleteBtnSpan.textContent = 'delete';
+    deleteBtnSpan.addEventListener('click', (el) => {
+      const bookCardContainer = el.target.closest('.book-card');
+      if(bookCard) {
+        console.log(bookCardContainer.dataset.index);
+      }
+    });
+    bookDeleteBtn.appendChild(deleteBtnSpan);
+    bookToolbar.appendChild(bookDeleteBtn);
+
+    bookCard.appendChild(bookToolbar);
 
     const bookInfoContainer = document.createElement('div');
     bookInfoContainer.classList.add('book-info-container');
