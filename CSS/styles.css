@@ -296,6 +296,7 @@ section#library-container {
     transform: scale(1.09);
     box-shadow: 5px 10px 30px var(--box-shadow);
     outline: 3px solid var(--base-accent);
+
     img.book-cover-img {
         filter: grayscale(0);
     }
@@ -307,6 +308,30 @@ section#library-container {
 
 .book-toolbar {
     z-index: 3;
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 2px;
+}
+
+.book-delete-btn {
+    border-radius: 50%;
+    background: rgba(8, 12, 25, 0.445);
+    transition: 150ms ease-in-out;
+}
+
+.book-delete-btn:hover {
+    transform: scale(1.1);
+    border-radius: 5px;
+    background: rgba(255, 0, 0, 0.705);
+}
+
+.book-delete-btn .material-symbols-outlined {
+    color: white;
+}
+
+.book-delete-btn .material-symbols-outlined:hover {
+    color: white;
 }
 
 img.book-cover-img {
@@ -429,6 +454,7 @@ dialog#modal-container {
     margin-left: 0;
     margin-right: 0;
 }
+
 #book-cover-input {
     margin-left: 10px;
     margin-right: auto;
@@ -458,6 +484,7 @@ dialog#modal-container {
     vertical-align: baseline;
     cursor: pointer;
 }
+
 #have-read-container fieldset {
     border: 2px solid var(--base-fg);
     width: 100%;
@@ -491,8 +518,8 @@ dialog#modal-container {
 #modal-cancel-btn {
     background-color: var(--red);
     box-shadow: 1px 3px 0px var(--dark-red),
-                0px 0px 0px var(--dark-red),
-                -1px 3px 0px var(--dark-red);
+        0px 0px 0px var(--dark-red),
+        -1px 3px 0px var(--dark-red);
     border-top: none;
     border-right: 3px solid var(--dark-red);
     border-left: 3px solid var(--dark-red);
@@ -511,8 +538,8 @@ dialog#modal-container {
 #modal-submit-btn {
     background-color: var(--green);
     box-shadow: 1px 3px 0px var(--dark-green),
-                0px 0px 0px var(--dark-green),
-                -1px 3px 0px var(--dark-green);
+        0px 0px 0px var(--dark-green),
+        -1px 3px 0px var(--dark-green);
     border-top: none;
     border-right: 3px solid var(--dark-green);
     border-left: 3px solid var(--dark-green);
@@ -543,6 +570,7 @@ footer {
     section#library-container {
         width: 80%;
     }
+
     #motto-container {
         display: none;
     }
@@ -558,9 +586,11 @@ footer {
     .modal-form-label:not(#book-cover-input-label) {
         display: none;
     }
+
     #book-cover-input-label {
         margin-left: auto;
     }
+
     .modal-form-input {
         width: 80%;
         margin-right: 0;
@@ -570,9 +600,11 @@ footer {
         width: 100%;
         justify-content: center;
     }
+
     #have-read-container {
         width: 80%;
     }
+
     nav#toolbar {
         justify-content: center;
     }

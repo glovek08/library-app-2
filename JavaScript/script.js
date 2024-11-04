@@ -139,13 +139,13 @@ function refreshLibrary() {
     console.log(`${i} Element removed`);
   }
   i = 0;
-  myLibrary.forEach(el => {
+  myLibrary.forEach(bookObject => {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
-    bookCard.dataset.index = myLibrary.indexOf(el);
+    bookCard.dataset.index = myLibrary.indexOf(bookObject);
 
     const bookCover = document.createElement('img');
-    bookCover.src = el.cover;
+    bookCover.src = bookObject.cover;
     bookCover.alt = 'Book Cover';
     bookCover.classList.add('book-cover-img');
     bookCover.height = 320;
@@ -161,10 +161,12 @@ function refreshLibrary() {
     const deleteBtnSpan = document.createElement('span');
     deleteBtnSpan.classList.add('material-symbols-outlined');
     deleteBtnSpan.textContent = 'delete';
-    deleteBtnSpan.addEventListener('click', (el) => {
-      const bookCardContainer = el.target.closest('.book-card');
+    deleteBtnSpan.addEventListener('click', (event) => {
+      const bookCardContainer = event.target.closest('.book-card');
       if(bookCard) {
-        console.log(bookCardContainer.dataset.index);
+        myLibrary.splice(bookCardContainer.dataset.index, 1);
+        console.log(`${bookCardContainer.dataset.index} - Book Title: ${bookObject.title} removed`);
+        refreshLibrary();
       }
     });
     bookDeleteBtn.appendChild(deleteBtnSpan);
@@ -177,17 +179,17 @@ function refreshLibrary() {
     bookCard.appendChild(bookInfoContainer);
 
     const bookTitle = document.createElement('h3');
-    bookTitle.textContent = el.title;
+    bookTitle.textContent = bookObject.title;
     bookTitle.classList.add('book-title');
     bookInfoContainer.appendChild(bookTitle);
 
     const bookAuthor = document.createElement('small');
-    bookAuthor.textContent = el.author;
+    bookAuthor.textContent = bookObject.author;
     bookAuthor.classList.add('book-author');
     bookInfoContainer.appendChild(bookAuthor);
 
     const bookYear = document.createElement('small');
-    bookYear.textContent = el.year;
+    bookYear.textContent = bookObject.year;
     bookYear.classList.add('book-year');
     bookInfoContainer.appendChild(bookYear);
 
