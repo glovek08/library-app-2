@@ -81,26 +81,36 @@ themeCheckbox.addEventListener('click', () => {
   }
 });
 
+themeCheckbox.addEventListener('focus', () => {
+  themeCheckboxSpan.classList.add('outline');
+});
+themeCheckbox.addEventListener('blur', () => {
+  themeCheckboxSpan.classList.remove('outline');
+});
+
 addBookBtn.addEventListener('click', () => {
   addBookModal.showModal();
-})
+});
+
 closeBookModal.addEventListener('click', () => {
   addBookModal.close()
-})
+});
+
 modalCancelBtn.addEventListener("click", () => {
   addBookModal.close();
-})
+});
+
 bookSubmitForm.addEventListener('submit', (e) => {
   if (!bookSubmitForm.checkValidity()) {
     e.preventDefault();
     alert("Missing Fields");
   }
   addBookToLibrary();
-})
+});
 
 /*
   TODO:
-  1 - Add functionality to remove a book.
+  1 - Add functionality to remove a book. **COMPLETED**
   2 - Add a toggle to change read status.
   3 - Handle the cover for the book.
   4 - Test the shit out of this, deadline: TOMORROW!
@@ -114,10 +124,10 @@ function Book(title, author, year, numberOfPages, haveRead) {
   this.numberOfPages = numberOfPages;
   this.haveRead = (haveRead === 'Yes') ? true : false;
   console.log("Book created: " + this.displayInfo());
-}
+};
 Book.prototype.displayInfo = function () {
   return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;
-}
+};
 
 function addBookToLibrary() {
   const titleInput = document.querySelector('[name="book-title"]').value;
@@ -129,7 +139,7 @@ function addBookToLibrary() {
   const book = new Book(titleInput, authorInput, yearInput, numberOfPages, haveRead);
   myLibrary.push(book);
   refreshLibrary();
-}
+};
 
 function refreshLibrary() {
   let i = 0;
@@ -137,13 +147,12 @@ function refreshLibrary() {
     libraryContainer.removeChild(libraryContainer.firstChild);
     i++;
     console.log(`${i} Element removed`);
-  }
+  };
   i = 0;
   myLibrary.forEach(bookObject => {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     bookCard.dataset.index = myLibrary.indexOf(bookObject);
-
     const bookCover = document.createElement('img');
     bookCover.src = bookObject.cover;
     bookCover.alt = 'Book Cover';
@@ -154,11 +163,43 @@ function refreshLibrary() {
 
     const bookToolbar = document.createElement('div');
     bookToolbar.classList.add('book-toolbar');
+    const readStatusLabel = document.createElement('label');
+    const readStatusCheckboxSpan = document.createElement('span');
+    readStatusCheckboxSpan.classList.add('material-symbols-outlined');
+    readStatusCheckboxSpan.classList.add('read-status-checkbox-span');
+    readStatusCheckboxSpan.textContent = 'check_box_outline_blank';
+    readStatusLabel.appendChild(readStatusCheckboxSpan);
+    readStatusLabel.append(" Have Read");
+
+    const readStatusCheckbox = document.createElement('input');
+    readStatusCheckbox.type = 'checkbox'
+    readStatusCheckbox.name = 'read-status';
+    readStatusCheckbox.classList.add('read-status-checkbox');
+    readStatusCheckbox.addEventListener('click', () => {
+      if (readStatusCheckbox.checked) {
+        readStatusCheckboxSpan.textContent = 'check_box';
+        readStatusCheckboxSpan.classList.add('yes');
+      } else {
+        readStatusCheckboxSpan.textContent = 'check_box_outline_blank';
+        readStatusCheckboxSpan.classList.remove('yes');
+        //Create onload function to check if read status is true or false then change color of span.
+      };
+    });
+    readStatusCheckbox.addEventListener('focus', () => {
+        readStatusLabel.classList.add('outline');
+    });
+    readStatusCheckbox.addEventListener('blur', () => {
+      readStatusLabel.classList.remove('outline');
+    });
+    readStatusLabel.appendChild(readStatusCheckbox);
+    bookToolbar.appendChild(readStatusLabel);
+
     const bookDeleteBtn = document.createElement('button');
     bookDeleteBtn.classList.add('book-delete-btn');
     bookDeleteBtn.classList.add('material-symbols-outlined-btn');
     bookDeleteBtn.title = 'DELETE BOOK';
     const deleteBtnSpan = document.createElement('span');
+    deleteBtnSpan.classList.add('book-delete-btn-span');
     deleteBtnSpan.classList.add('material-symbols-outlined');
     deleteBtnSpan.textContent = 'delete';
     deleteBtnSpan.addEventListener('click', (event) => {
@@ -167,11 +208,10 @@ function refreshLibrary() {
         myLibrary.splice(bookCardContainer.dataset.index, 1);
         console.log(`${bookCardContainer.dataset.index} - Book Title: ${bookObject.title} removed`);
         refreshLibrary();
-      }
+      };
     });
     bookDeleteBtn.appendChild(deleteBtnSpan);
     bookToolbar.appendChild(bookDeleteBtn);
-
     bookCard.appendChild(bookToolbar);
 
     const bookInfoContainer = document.createElement('div');
@@ -194,6 +234,6 @@ function refreshLibrary() {
     bookInfoContainer.appendChild(bookYear);
 
     libraryContainer.appendChild(bookCard);
-  })
+  });
   console.log('Library refreshed.')
-}
+};

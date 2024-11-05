@@ -15,6 +15,7 @@
     --dark-red: #d1504c;
     --green: #5CB85C;
     --dark-green: #439743;
+    --book-toolbar-bg: #ccd7d7d8;
     /*margins*/
     --main-margin: 50px;
 }
@@ -34,14 +35,23 @@
     --modal-font: rgb(213, 211, 201);
     --red: #d53d3d;
     --dark-red: #9b0d0d;
-    --dark-green: rgb(14, 129, 14);
     --green: rgb(30, 146, 30);
+    --dark-green: rgb(14, 129, 14);
+    --book-toolbar-bg: #020611a6;
 
 }
 
 /* a:visited {
     color: var(--visited);
 } */
+
+.yes {
+    color: var(--green);
+}
+
+.outline {
+    outline: 2px solid var(--base-accent);
+}
 
 .material-symbols-outlined {
     transition: 200ms;
@@ -51,7 +61,9 @@
         'GRAD' 0,
         'opsz' 24
 }
-
+*:focus {
+    outline: 2px solid var(--base-accent);
+}
 
 *,
 *::after,
@@ -308,30 +320,70 @@ section#library-container {
 
 .book-toolbar {
     z-index: 3;
-    align-self: flex-end;
+    width: 93%;
     margin-top: 5px;
-    margin-right: 5px;
+    margin-bottom: auto;
     padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.read-status-checkbox {
+    position: absolute;
+    left: -500%;
+}
+
+.read-status-checkbox-span {
+    margin-right: 5px;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 900,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.book-toolbar label {
+    border-radius: 4px;
+    background: var(--base-fg-transparent);
+    color: var(--fg-font);
+    padding: 5px 9px 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    font-size: 1.2em;
+    transition: transform 150ms ease-in-out;
+    box-shadow: 4px 4px 10px var(var(--box-shadow));
+    text-shadow: var(--text-shadow);
+
+}
+
+.book-toolbar label:hover {
+    transform: scale(1.1);
+    background: var(--base-fg-transparent-hover);
+}
+
+.read-status-checkbox-span,
+.book-toolbar label {
+    cursor: pointer;
 }
 
 .book-delete-btn {
     border-radius: 50%;
-    background: rgba(8, 12, 25, 0.445);
+    background: var(--base-fg-transparent);
+    color: var(--fg-font);
     transition: 150ms ease-in-out;
+
 }
 
 .book-delete-btn:hover {
     transform: scale(1.1);
     border-radius: 5px;
     background: rgba(255, 0, 0, 0.705);
-}
 
-.book-delete-btn .material-symbols-outlined {
-    color: white;
-}
-
-.book-delete-btn .material-symbols-outlined:hover {
-    color: white;
+    .book-delete-btn-span {
+        color: white;
+    }
 }
 
 img.book-cover-img {
@@ -350,7 +402,7 @@ img.book-cover-img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
+    margin-top: 0;
     margin-bottom: 0;
     width: 100%;
     padding: 10px;
@@ -359,6 +411,7 @@ img.book-cover-img {
     text-shadow: 0 0 5px var(--text-shadow);
     transition: background-color 200ms ease-in-out;
 }
+
 
 .book-title {
     margin: 0;
