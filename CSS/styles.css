@@ -2,7 +2,7 @@
     --base-bg: #DADAD9;
     --bg-font: #161612;
     --base-fg: #36382E;
-    --base-fg-transparent: #1b1d1f93;
+    --base-fg-transparent: #1b1d1fb3;
     --base-fg-transparent-hover: #0d1115e4;
     --fg-font: #EDE6E3;
     --base-accent: #db573c;
@@ -15,7 +15,6 @@
     --dark-red: #d1504c;
     --green: #5CB85C;
     --dark-green: #439743;
-    --book-toolbar-bg: #ccd7d7d8;
     /*margins*/
     --main-margin: 50px;
 }
@@ -24,7 +23,7 @@
     --base-bg: #262622;
     --bg-font: #EDE6E3;
     --base-fg: #a6aeb4;
-    --base-fg-transparent: #c3daea9d;
+    --base-fg-transparent: #c3daeac1;
     --base-fg-transparent-hover: #cddfecfc;
     --fg-font: #2c281b;
     --base-accent: #f12c1e;
@@ -37,8 +36,6 @@
     --dark-red: #9b0d0d;
     --green: rgb(30, 146, 30);
     --dark-green: rgb(14, 129, 14);
-    --book-toolbar-bg: #020611a6;
-
 }
 
 /* a:visited {
@@ -170,6 +167,7 @@ header {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 #theme-checkbox-label:hover {
@@ -181,6 +179,7 @@ header {
 
 #theme-checkbox-span {
     font-size: 2.5em;
+    border-radius: 5px;
 }
 
 
@@ -307,31 +306,36 @@ section#library-container {
 .book-card:hover {
     transform: scale(1.09);
     box-shadow: 5px 10px 30px var(--box-shadow);
-    outline: 3px solid var(--base-accent);
 
     img.book-cover-img {
         filter: grayscale(0);
     }
-
     .book-info-container {
         background-color: var(--base-fg-transparent-hover);
+    }
+    .book-toolbar label {
+        background: var(--base-fg-transparent-hover);
+    }
+    .book-delete-btn:not(.book-delete-btn:hover) {
+        background: var(--base-fg-transparent-hover);
     }
 }
 
 .book-toolbar {
     z-index: 3;
-    width: 93%;
+    width: 95%;
+    height: 25%;
     margin-top: 5px;
     margin-bottom: auto;
     padding: 2px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
 .read-status-checkbox {
     position: absolute;
-    left: -500%;
+    bottom: 200dvh;
 }
 
 .read-status-checkbox-span {
@@ -344,22 +348,27 @@ section#library-container {
 }
 
 .book-toolbar label {
-    border-radius: 4px;
+    /* outline: 1px solid green; */
+    border: 2px solid var(--bg-font);
+    border-radius: 20px;
     background: var(--base-fg-transparent);
     color: var(--fg-font);
-    padding: 5px 9px 5px 5px;
+    padding: 7px 12px;
     display: flex;
     align-items: center;
     justify-self: center;
     font-size: 1.2em;
-    transition: transform 150ms ease-in-out;
+    transition: 150ms ease-in-out;
     box-shadow: 4px 4px 10px var(var(--box-shadow));
     text-shadow: var(--text-shadow);
-
+    overflow: auto;
 }
 
 .book-toolbar label:hover {
+    transform-origin: center;
     transform: scale(1.1);
+    margin-left: 5px;
+    border-radius: 6px;
     background: var(--base-fg-transparent-hover);
 }
 
@@ -369,6 +378,7 @@ section#library-container {
 }
 
 .book-delete-btn {
+    border: 2px solid var(--bg-font);
     border-radius: 50%;
     background: var(--base-fg-transparent);
     color: var(--fg-font);

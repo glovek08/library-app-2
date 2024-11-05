@@ -84,6 +84,7 @@ themeCheckbox.addEventListener('click', () => {
 themeCheckbox.addEventListener('focus', () => {
   themeCheckboxSpan.classList.add('outline');
 });
+
 themeCheckbox.addEventListener('blur', () => {
   themeCheckboxSpan.classList.remove('outline');
 });
@@ -111,6 +112,7 @@ bookSubmitForm.addEventListener('submit', (e) => {
 /*
   TODO:
   1 - Add functionality to remove a book. **COMPLETED**
+  FIX THE HAVE READ HOVER.
   2 - Add a toggle to change read status.
   3 - Handle the cover for the book.
   4 - Test the shit out of this, deadline: TOMORROW!
@@ -175,16 +177,30 @@ function refreshLibrary() {
     readStatusCheckbox.type = 'checkbox'
     readStatusCheckbox.name = 'read-status';
     readStatusCheckbox.classList.add('read-status-checkbox');
-    readStatusCheckbox.addEventListener('click', () => {
+
+    //This event is to change the have read status of each book in myLibrary when the user toggles the have-read checkbox.
+    readStatusCheckbox.addEventListener('click', (event) => {
+      const bookCardContainer = event.target.closest('.book-card');
       if (readStatusCheckbox.checked) {
         readStatusCheckboxSpan.textContent = 'check_box';
         readStatusCheckboxSpan.classList.add('yes');
+        myLibrary[bookCardContainer.dataset.index].haveRead = !true;
+        console.log(`Book: ${bookObject.title} has been read? ${bookObject.haveRead}`);
       } else {
         readStatusCheckboxSpan.textContent = 'check_box_outline_blank';
         readStatusCheckboxSpan.classList.remove('yes');
-        //Create onload function to check if read status is true or false then change color of span.
+        myLibrary[bookCardContainer.dataset.index].haveRead = !false;
+        console.log(`Book: ${bookObject.title} has been read? ${bookObject.haveRead}`);
       };
     });
+
+    // Checks if haveRead is true and changes the checkbox state and the color of the span with the checkbox symbol.
+    if (bookObject.haveRead) {
+      readStatusCheckboxSpan.classList.add("yes");
+      readStatusCheckbox.checked = true;
+      console.log(bookObject.title+" set to true.")
+      readStatusCheckboxSpan.textContent = 'check_box';
+    }
     readStatusCheckbox.addEventListener('focus', () => {
         readStatusLabel.classList.add('outline');
     });
