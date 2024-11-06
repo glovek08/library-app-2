@@ -362,7 +362,7 @@ section#library-container {
 
 .read-status-checkbox {
     position: relative;
-    left: 200dvw;
+    left: 2000dvw;
     width: 0;
     margin: 0;
 }
@@ -653,7 +653,7 @@ dialog#modal-container {
     border-top: 3px solid var(--green);
 }
 
-#confirm-delete-modal {
+.confirm-delete-modal {
     z-index: 99;
     background-color: var(--modal-bg);
     border-radius: 5px;
@@ -661,7 +661,7 @@ dialog#modal-container {
     padding: 10px 40px 20px 40px;
     color: var(--modal-font);
 }
-#confirm-delete-modal-buttons-container {
+.confirm-delete-modal-form {
     /* outline: 1px solid blue; */
     display: flex;
     align-items: center;

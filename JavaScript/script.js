@@ -3,7 +3,6 @@ const themeCheckbox = document.querySelector('#theme-checkbox');
 const themeCheckboxSpan = document.querySelector('#theme-checkbox-span');
 const libraryContainer = document.querySelector('#library-container');
 const bookDeleteBtn = document.querySelector('.book-delete-btn');
-const confirmDeleteModal = document.querySelector('#confirm-delete-modal');
 
 //Add Book Modal
 const addBookModal = document.querySelector("#modal-container");
@@ -101,9 +100,6 @@ bookSubmitForm.addEventListener('submit', (e) => {
   }
   addBookToLibrary();
 });
-confirmDeleteModal.addEventListener('submit', (e) => {
-
-}); 
 
 /*
   TODO:
@@ -111,7 +107,7 @@ confirmDeleteModal.addEventListener('submit', (e) => {
   2 - Add a toggle to change read status. **COMPLETED*
   3 - Handle the cover for the book. 
   4 - Test the shit out of this, deadline: TOMORROW!
-*/ 
+*/
 
 
 function Book(title, author, year, numberOfPages, haveRead) {
@@ -197,7 +193,7 @@ function refreshLibrary() {
     if (bookObject.haveRead) {
       readStatusCheckboxSpan.classList.add("yes");
       readStatusCheckbox.checked = true;
-      console.log(bookObject.title+" set to true.")
+      console.log(bookObject.title + " set to true.")
       readStatusCheckboxSpan.textContent = 'check_box';
     }
     readStatusLabel.appendChild(readStatusCheckbox);
@@ -211,14 +207,8 @@ function refreshLibrary() {
     deleteBtnSpan.classList.add('book-delete-btn-span');
     deleteBtnSpan.classList.add('material-symbols-outlined');
     deleteBtnSpan.textContent = 'delete';
-    deleteBtnSpan.addEventListener('click', (event) => {
-      confirmDeleteModal.showModal();
-      // const bookCardContainer = event.target.closest('.book-card');
-      // if(bookCard) {
-      //   myLibrary.splice(bookCardContainer.dataset.index, 1);
-      //   console.log(`${bookCardContainer.dataset.index} - Book Title: ${bookObject.title} removed`);
-      //   refreshLibrary();
-      // };
+    deleteBtnSpan.addEventListener('click', () => {
+      deleteModal.showModal();
     });
     bookDeleteBtn.appendChild(deleteBtnSpan);
     bookToolbar.appendChild(bookDeleteBtn);
@@ -242,6 +232,48 @@ function refreshLibrary() {
     bookYear.textContent = bookObject.year;
     bookYear.classList.add('book-year');
     bookInfoContainer.appendChild(bookYear);
+
+
+    /* ******************** DELETE MODAL ************************************* */
+
+    const deleteModal = document.createElement("dialog");
+    deleteModal.classList.add("confirm-delete-modal");
+    deleteModal.setAttribute("role", "dialog");
+
+    const heading = document.createElement("h3");
+    heading.textContent = "ARE YOU SURE?";
+    deleteModal.appendChild(heading);
+
+    const deleteForm = document.createElement("form");
+    deleteForm.classList.add("confirm-delete-modal-form");
+    deleteForm.setAttribute("method", "dialog");
+    deleteForm.addEventListener('submit', (event) => {
+      const bookCardContainer = event.target.closest('.book-card');
+      if(bookCard) {
+        myLibrary.splice(bookCardContainer.dataset.index, 1);
+        console.log(`${bookCardContainer.dataset.index} - Book Title: ${bookObject.title} removed`);
+        refreshLibrary();
+      };
+    });
+    deleteForm.addEventListener('reset', () => {
+      deleteModal.close();
+    });
+
+    const noButton = document.createElement("button");
+    noButton.type = "reset";
+    noButton.classList.add("modal-button");
+    noButton.textContent = "NO";
+
+    const yesButton = document.createElement("button");
+    yesButton.type = "submit";
+    yesButton.classList.add("modal-button");
+    yesButton.textContent = "YES";
+
+    deleteForm.appendChild(noButton);
+    deleteForm.appendChild(yesButton);
+
+    deleteModal.appendChild(deleteForm);
+    bookCard.appendChild(deleteModal);
 
     libraryContainer.appendChild(bookCard);
   });
