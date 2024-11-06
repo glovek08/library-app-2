@@ -357,8 +357,11 @@ section#library-container {
 }
 
 .read-status-checkbox {
-    position: absolute;
+    position: relative;
+    display: none;
     bottom: 200dvh;
+    width: 0;
+    margin: 0;
 }
 
 .read-status-checkbox-span {
@@ -396,8 +399,7 @@ section#library-container {
     }
 }
 .checkbox-span-text-content {
-    position: absolute;
-    left: 35px;
+    position: relative;
     text-wrap: nowrap;
 }
 
