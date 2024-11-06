@@ -87,11 +87,6 @@
     outline: none;
 }
 
-#theme-checkbox:focus-visible + #theme-checkbox-label {
-    outline: 2px solid var(--base-accent);
-    outline-offset: -4px;
-  }
-
 *,
 *::after,
 *::before {
@@ -203,6 +198,11 @@ header {
 #theme-checkbox-span {
     font-size: 2.5em;
     border-radius: 5px;
+}
+
+#theme-checkbox:focus-visible + #theme-checkbox-label {
+    outline: 2px solid var(--base-accent);
+    outline-offset: -4px;
 }
 
 
@@ -356,13 +356,17 @@ section#library-container {
     justify-content: space-between;
 }
 
+.book-toolbar label:focus-within {
+    outline: 2px solid var(--base-accent);
+}
+
 .read-status-checkbox {
     position: relative;
-    display: none;
-    bottom: 200dvh;
+    left: 200dvw;
     width: 0;
     margin: 0;
 }
+
 
 .read-status-checkbox-span {
     font-variation-settings:
