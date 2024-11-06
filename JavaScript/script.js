@@ -6,6 +6,7 @@
   - Handle book cover (Won't do till db).
   - Bookmark book and sort by bookmark.
   - Make it compatible.
+  - Accesibility.
 */
 
 

@@ -43,6 +43,7 @@
     --dark-red: #9b0d0d;
     --green: rgb(30, 146, 30);
     --dark-green: rgb(14, 129, 14);
+    
     #footer-tod-logo {
         filter: invert();
     }
