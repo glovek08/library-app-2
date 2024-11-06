@@ -1,3 +1,16 @@
+
+
+
+//FIX: Select delete button.
+/*TODO: 
+  - Handle book cover (Won't do till db).
+  - Bookmark book and sort by bookmark.
+  - Make it compatible.
+*/
+
+
+
+
 const root = document.documentElement;
 const themeCheckbox = document.querySelector('#theme-checkbox');
 const themeCheckboxSpan = document.querySelector('#theme-checkbox-span');
@@ -100,15 +113,6 @@ bookSubmitForm.addEventListener('submit', (e) => {
   }
   addBookToLibrary();
 });
-
-/*
-  TODO:
-  1 - Add functionality to remove a book. **COMPLETED**
-  2 - Add a toggle to change read status. **COMPLETED*
-  3 - Handle the cover for the book. 
-  4 - Test the shit out of this, deadline: TOMORROW!
-*/
-
 
 function Book(title, author, year, numberOfPages, haveRead) {
   this.title = title;
