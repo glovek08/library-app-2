@@ -46,8 +46,13 @@
 }
 
 @font-face {
-    font-family: "Open Sans";
-    src: url("../Assets/fonts/OpenSans-Regular.ttf") format("ttf");
+    font-family: 'Roboto Slab';
+    src: url('../Assets/fonts/RobotoSlab-Regular.ttf') format('ttf'),
+        url('../Assets/fonts/RobotoSlab-Regular.woff2') format('woff2'),
+        url('../Assets/fonts/RobotoSlab-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* a:visited {
@@ -103,8 +108,9 @@ dialog::backdrop {
 }
 
 html {
-    font-family: 'Open Sans',
+    font-family: 'Roboto Slab',
         system-ui,
+        'Open Sans',
         -apple-system,
         BlinkMacSystemFont,
         'Segoe UI',
@@ -132,7 +138,7 @@ body {
     flex-direction: column;
     max-width: 100dvw;
     min-height: 100dvh;
-    transition: background-color 200ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
 }
 
 header {
@@ -650,22 +656,24 @@ dialog#modal-container {
     color: var(--modal-font);
 }
 #confirm-delete-modal-buttons-container {
+    /* outline: 1px solid blue; */
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: 1px solid blue;
     width: 100%;
     gap: 10px;
 }
 .modal-button {
     cursor: pointer;
     width: 50px;
+    border-radius: 5px;
     padding: 5px 20px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bolder;
+    border: 2px solid var(--base-fg);
 }
 
 footer {

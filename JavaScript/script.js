@@ -82,14 +82,6 @@ themeCheckbox.addEventListener('click', () => {
   }
 });
 
-// themeCheckbox.addEventListener('focus', () => {
-//   themeCheckboxSpan.classList.add('outline');
-// });
-
-// themeCheckbox.addEventListener('blur', () => {
-//   themeCheckboxSpan.classList.remove('outline');
-// });
-
 addBookBtn.addEventListener('click', () => {
   addBookModal.showModal();
 });
@@ -208,12 +200,6 @@ function refreshLibrary() {
       console.log(bookObject.title+" set to true.")
       readStatusCheckboxSpan.textContent = 'check_box';
     }
-    readStatusCheckbox.addEventListener('focus', () => {
-        readStatusLabel.classList.add('outline');
-    });
-    readStatusCheckbox.addEventListener('blur', () => {
-      readStatusLabel.classList.remove('outline');
-    });
     readStatusLabel.appendChild(readStatusCheckbox);
     bookToolbar.appendChild(readStatusLabel);
 
