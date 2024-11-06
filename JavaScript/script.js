@@ -3,6 +3,7 @@ const themeCheckbox = document.querySelector('#theme-checkbox');
 const themeCheckboxSpan = document.querySelector('#theme-checkbox-span');
 const libraryContainer = document.querySelector('#library-container');
 const bookDeleteBtn = document.querySelector('.book-delete-btn');
+const confirmDeleteModal = document.querySelector('#confirm-delete-modal');
 
 //Add Book Modal
 const addBookModal = document.querySelector("#modal-container");
@@ -81,13 +82,13 @@ themeCheckbox.addEventListener('click', () => {
   }
 });
 
-themeCheckbox.addEventListener('focus', () => {
-  themeCheckboxSpan.classList.add('outline');
-});
+// themeCheckbox.addEventListener('focus', () => {
+//   themeCheckboxSpan.classList.add('outline');
+// });
 
-themeCheckbox.addEventListener('blur', () => {
-  themeCheckboxSpan.classList.remove('outline');
-});
+// themeCheckbox.addEventListener('blur', () => {
+//   themeCheckboxSpan.classList.remove('outline');
+// });
 
 addBookBtn.addEventListener('click', () => {
   addBookModal.showModal();
@@ -108,13 +109,15 @@ bookSubmitForm.addEventListener('submit', (e) => {
   }
   addBookToLibrary();
 });
+confirmDeleteModal.addEventListener('submit', (e) => {
+
+}); 
 
 /*
   TODO:
   1 - Add functionality to remove a book. **COMPLETED**
-  FIX THE HAVE READ HOVER.
-  2 - Add a toggle to change read status.
-  3 - Handle the cover for the book.
+  2 - Add a toggle to change read status. **COMPLETED*
+  3 - Handle the cover for the book. 
   4 - Test the shit out of this, deadline: TOMORROW!
 */ 
 
@@ -171,7 +174,11 @@ function refreshLibrary() {
     readStatusCheckboxSpan.classList.add('read-status-checkbox-span');
     readStatusCheckboxSpan.textContent = 'check_box_outline_blank';
     readStatusLabel.appendChild(readStatusCheckboxSpan);
-    readStatusLabel.append(" Have Read");
+    const checkboxSpanTextContent = document.createElement('span');
+    checkboxSpanTextContent.classList.add('checkbox-span-text-content');
+    checkboxSpanTextContent.classList.add('hide');
+    checkboxSpanTextContent.textContent = "Have Read";
+    readStatusLabel.appendChild(checkboxSpanTextContent);
 
     const readStatusCheckbox = document.createElement('input');
     readStatusCheckbox.type = 'checkbox'
@@ -219,12 +226,13 @@ function refreshLibrary() {
     deleteBtnSpan.classList.add('material-symbols-outlined');
     deleteBtnSpan.textContent = 'delete';
     deleteBtnSpan.addEventListener('click', (event) => {
-      const bookCardContainer = event.target.closest('.book-card');
-      if(bookCard) {
-        myLibrary.splice(bookCardContainer.dataset.index, 1);
-        console.log(`${bookCardContainer.dataset.index} - Book Title: ${bookObject.title} removed`);
-        refreshLibrary();
-      };
+      confirmDeleteModal.showModal();
+      // const bookCardContainer = event.target.closest('.book-card');
+      // if(bookCard) {
+      //   myLibrary.splice(bookCardContainer.dataset.index, 1);
+      //   console.log(`${bookCardContainer.dataset.index} - Book Title: ${bookObject.title} removed`);
+      //   refreshLibrary();
+      // };
     });
     bookDeleteBtn.appendChild(deleteBtnSpan);
     bookToolbar.appendChild(bookDeleteBtn);
@@ -239,12 +247,12 @@ function refreshLibrary() {
     bookTitle.classList.add('book-title');
     bookInfoContainer.appendChild(bookTitle);
 
-    const bookAuthor = document.createElement('small');
+    const bookAuthor = document.createElement('p');
     bookAuthor.textContent = bookObject.author;
     bookAuthor.classList.add('book-author');
     bookInfoContainer.appendChild(bookAuthor);
 
-    const bookYear = document.createElement('small');
+    const bookYear = document.createElement('p');
     bookYear.textContent = bookObject.year;
     bookYear.classList.add('book-year');
     bookInfoContainer.appendChild(bookYear);

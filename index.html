@@ -53,7 +53,7 @@
                         <span class="material-symbols-outlined read-status-checkbox-span">
                             check_box_outline_blank
                         </span>
-                        Have read
+                        <span class="checkbox-span-text-content">Have read</span>
                         <input type="checkbox" name="read-status" class="read-status-checkbox">
                     </label>
                     <button class="book-delete-btn material-symbols-outlined-btn" title="DELETE BOOK">
@@ -125,6 +125,13 @@
                     </div>
                 </form>
             </div>
+        </dialog>
+        <dialog id="confirm-delete-modal" role="dialog">
+            <h3>ARE YOU SURE?</h3>
+            <form id="confirm-delete-modal-buttons-container" method="dialog">
+                <button type="reset" class="modal-button">NO</button>
+                <button type="submit" class="modal-button">YES</button>
+            </form>
         </dialog>
     </main>
     <footer>

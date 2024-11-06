@@ -38,10 +38,25 @@
     --dark-green: rgb(14, 129, 14);
 }
 
+@font-face {
+    font-family: Playwrite England;
+    src: url("../Assets/fonts/playwritegbs-variablefont_wght-webfont.woff2") format("woff2"),
+        url("../Assets/fonts/playwritegbs-variablefont_wght-webfont.woff") format("woff"),
+        url("../Assets/fonts/PlaywriteGBS-VariableFont_wght.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../Assets/fonts/OpenSans-Regular.ttf") format("ttf");
+}
+
 /* a:visited {
     color: var(--visited);
 } */
 
+.hide {
+    display: none;
+}
 .yes {
     color: var(--green);
 }
@@ -58,9 +73,19 @@
         'GRAD' 0,
         'opsz' 24
 }
-*:focus {
+
+
+*:focus-visible {
     outline: 2px solid var(--base-accent);
 }
+*:active {
+    outline: none;
+}
+
+#theme-checkbox:focus-visible + #theme-checkbox-label {
+    outline: 2px solid var(--base-accent);
+    outline-offset: -4px;
+  }
 
 *,
 *::after,
@@ -68,16 +93,9 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: Playwrite England;
-    src: url("../Assets/fonts/playwritegbs-variablefont_wght-webfont.woff2") format("woff2"),
-        url("../Assets/fonts/playwritegbs-variablefont_wght-webfont.woff") format("woff"),
-        url("../Assets/fonts/PlaywriteGBS-VariableFont_wght.ttf") format("ttf");
-}
-
-@font-face {
-    font-family: "Open Sans";
-    src: url("../Assets/fonts/OpenSans-Regular.ttf") format("ttf");
+dialog::backdrop {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.514);
 }
 
 .fit-content {
@@ -131,7 +149,6 @@ header {
     gap: 10px;
     border-radius: 5px;
 }
-
 
 
 
@@ -339,7 +356,6 @@ section#library-container {
 }
 
 .read-status-checkbox-span {
-    margin-right: 5px;
     font-variation-settings:
         'FILL' 1,
         'wght' 900,
@@ -348,28 +364,35 @@ section#library-container {
 }
 
 .book-toolbar label {
-    /* outline: 1px solid green; */
     border: 2px solid var(--bg-font);
-    border-radius: 20px;
+    border-radius: 50%;
     background: var(--base-fg-transparent);
     color: var(--fg-font);
-    padding: 7px 12px;
+    padding: 7px;
     display: flex;
     align-items: center;
     justify-self: center;
     font-size: 1.2em;
-    transition: 150ms ease-in-out;
     box-shadow: 4px 4px 10px var(var(--box-shadow));
     text-shadow: var(--text-shadow);
     overflow: auto;
+    transition: 150ms ease-in-out, border-radius 100ms;
 }
 
 .book-toolbar label:hover {
-    transform-origin: center;
+    transform-origin: left;
     transform: scale(1.1);
-    margin-left: 5px;
+    width: 140px;
     border-radius: 6px;
     background: var(--base-fg-transparent-hover);
+    .hide {
+        display: block;
+    }
+}
+.checkbox-span-text-content {
+    position: absolute;
+    left: 35px;
+    text-wrap: nowrap;
 }
 
 .read-status-checkbox-span,
@@ -406,9 +429,10 @@ img.book-cover-img {
 }
 
 .book-info-container {
+    /* outline: 1px solid red; */
     z-index: 2;
     background-color: var(--base-fg-transparent);
-    display: flex;
+    display: fleconfirm-delete-dialogx;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -421,7 +445,9 @@ img.book-cover-img {
     text-shadow: 0 0 5px var(--text-shadow);
     transition: background-color 200ms ease-in-out;
 }
-
+.book-info-container p{
+    margin: 2px;
+}
 
 .book-title {
     margin: 0;
@@ -431,16 +457,12 @@ dialog#modal-container {
     /* outline: 1px solid red; */
     padding: 20px;
     width: 600px;
+    overflow: hidden;
     background-color: var(--modal-bg);
     border-radius: 5px;
     border: 2px solid var(--base-fg);
     color: var(--modal-font);
     gap: 16px;
-}
-
-#modal-container::backdrop {
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.514);
 }
 
 #modal-header {
@@ -617,6 +639,33 @@ dialog#modal-container {
     border-right: 3px solid var(--green);
     border-left: 3px solid var(--green);
     border-top: 3px solid var(--green);
+}
+
+#confirm-delete-modal {
+    z-index: 99;
+    background-color: var(--modal-bg);
+    border-radius: 5px;
+    border: 2px solid var(--base-fg);
+    padding: 10px 40px 20px 40px;
+    color: var(--modal-font);
+}
+#confirm-delete-modal-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 1px solid blue;
+    width: 100%;
+    gap: 10px;
+}
+.modal-button {
+    cursor: pointer;
+    width: 50px;
+    padding: 5px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
 }
 
 footer {
