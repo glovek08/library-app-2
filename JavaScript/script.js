@@ -65,6 +65,22 @@ const myLibrary = [
     numberOfPages: 420,
     haveRead: true,
     cover: "Assets/book covers/Poor_Dad_Poor_Dad_cover.jpg"
+  },
+  {
+    title: "Eloquent Javascript",
+    author: "Marijn Haverbeke",
+    year: 2014,
+    numberOfPages: 228,
+    haveRead: false,
+    cover: "Assets/book covers/Eloquent_Javascript.jpg"
+  },
+  {
+    title: "A Smarter Way to Learn HTML & CSS",
+    author: "Mike Myers",
+    year: 2015,
+    numberOfPages: 243,
+    haveRead: false,
+    cover: "Assets/book covers/A_smarter_way_to_learn_html_&_css.jpg"
   }
 ];
 
@@ -153,7 +169,7 @@ function refreshLibrary() {
     bookCard.dataset.index = myLibrary.indexOf(bookObject);
     const bookCover = document.createElement('img');
     bookCover.src = bookObject.cover;
-    bookCover.alt = 'Book Cover';
+    bookCover.alt = `${bookObject.title} cover`;
     bookCover.classList.add('book-cover-img');
     bookCover.height = 320;
     bookCover.width = 220;
