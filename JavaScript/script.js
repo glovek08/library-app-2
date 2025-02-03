@@ -131,17 +131,29 @@ bookSubmitForm.addEventListener('submit', (e) => {
   addBookToLibrary();
 });
 
-function Book(title, author, year, numberOfPages, haveRead) {
-  this.title = title;
-  this.author = author;
-  this.year = year;
-  this.numberOfPages = numberOfPages;
-  this.haveRead = (haveRead === 'Yes') ? true : false;
-  console.log("Book created: " + this.displayInfo());
-};
-Book.prototype.displayInfo = function () {
-  return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;
-};
+// function Book(title, author, year, numberOfPages, haveRead) {
+//   this.title = title;
+//   this.author = author;
+//   this.year = year;
+//   this.numberOfPages = numberOfPages;
+//   this.haveRead = (haveRead === 'Yes') ? true : false;
+//   console.log("Book created: " + this.displayInfo());
+// };
+// Book.prototype.displayInfo = function () {
+//   return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;
+// };
+class Book {  
+  constructor (title, author, year, numberOfPages, haveRead) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.numberOfPages = numberOfPages;
+    this.haveRead = (haveRead === 'Yes') ? true : false;
+  }
+  displayInfo() {
+    return `${this.title}, ${this.author}, ${this.year}, ${this.numberOfPages}, ${this.haveRead}`;
+  }
+}
 
 function addBookToLibrary() {
   const titleInput = document.querySelector('[name="book-title"]').value;
